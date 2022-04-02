@@ -33,7 +33,7 @@ nav.header-navbar {
     width: 100%;
     position: relative;
     h2 {
-      color: #aeddffcc;
+      color: #fff;
       font-size: 24px;
       font-weight: 700;
       letter-spacing: 0.5px;
@@ -47,4 +47,17 @@ nav.header-navbar {
     top: -12px;
     right: -20px;
   }
+}
+nav.sticky-bg.header-navbar {
+  background: #0d1d3a;
+  z-index: 9999;
+}
+nav.sticky-bg.black.header-navbar.bg-primary-color.navbar.navbar-expand-md {
+  background: #18191a !important;
+  background-image: linear-gradient(
+    to right bottom,
+    #18191a,
+    #18191a 52%,
+    #18191a
+  );
 }

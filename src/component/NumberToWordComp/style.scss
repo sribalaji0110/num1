@@ -22,6 +22,7 @@
     max-width: 100%;
     position: relative;
     z-index: 1;
+    padding-bottom: 55px;
     .card-title {
       max-width: 900px;
       margin: 0px auto;
@@ -95,6 +96,14 @@
       position: relative;
       transition: box-shadow 0.16s ease, background-color 0.16s ease;
       width: 100%;
+      p.keyword {
+        opacity: 0.8;
+        color: #fff;
+        margin: 0;
+        position: relative;
+        top: 14px;
+        font-size: 13px;
+      }
       &:hover {
         background-color: #0d1d3a;
       }
@@ -113,11 +122,11 @@
       }
     }
     span.copy-clip svg {
-      height: 19px !important;
+      height: 28px !important;
       width: auto;
       cursor: pointer;
       position: relative;
-      top: 4px;
+      top: 3px;
       color: #fff;
       opacity: 0.8;
     }
@@ -205,6 +214,7 @@
       padding-right: 15px;
     }
     .layout {
+      padding-bottom: 40px;
       .mobile-adjust {
         padding: 0px !important;
       }
@@ -228,9 +238,9 @@
           font-size: 13px;
         }
         span.copy-clip svg {
-          top: -8px;
-          height: 16px !important;
-          right: -7px;
+          top: -7px;
+          height: 18px !important;
+          right: -8px;
         }
         .card-details h6 {
           font-size: 12px;
@@ -245,6 +255,10 @@
           height: 22px;
           min-width: auto;
         }
+        .ant-select-single .ant-select-selector .ant-select-selection-search {
+          top: -4px;
+          left: 4px;
+        }
         .ant-select-arrow {
           color: #aeddff99;
           font-size: 11px;
@@ -257,13 +271,35 @@
         }
         .card-details {
           padding: 15px;
+          p.keyword {
+            font-size: 12px;
+            padding-bottom: 22px;
+          }
         }
       }
     }
   }
+  div .body-content {
+    background-color: #0d1d3a;
+    padding: 35px 20px;
+    .brief {
+      h3 {
+        font-size: 15px;
+        padding-bottom: 10px;
+      }
+      p {
+        font-size: 12px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+  .header-navbar .header-navbar-title h2 {
+    font-size: 18px;
+  }
 }
 .dark-mode.black,
-.dark-mode.black .layout {
+.dark-mode.black .layout,
+.black.body-content {
   background: #18191a !important;
   background-image: linear-gradient(
     to right bottom,
@@ -289,5 +325,48 @@
       box-shadow: 0 0 0 2px #020404;
       color: #fff;
     }
+  }
+}
+////DISCRIPTION PAGE
+.body-content {
+  background-color: #0d1d3a;
+  padding: 60px 0px;
+  .brief {
+    max-width: 1040px;
+    margin: 0px auto;
+    h3 {
+      color: #fff;
+      letter-spacing: 0.5px;
+      font-weight: bold;
+      font-family: "Roboto", sans-serif;
+      font-size: 19px;
+      padding-bottom: 15px;
+      margin: 0;
+    }
+    p {
+      color: #aeddffcc;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      line-height: 1.64;
+      font-size: 14px;
+      margin: 0;
+      padding-bottom: 40px;
+      strong {
+        color: #aeddff;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.footer {
+  background: #191d20;
+  padding: 15px 0px;
+  text-align: center;
+  p {
+    color: #fff;
+    opacity: 0.6;
+    margin: 0;
+    font-size: 12px;
   }
 }

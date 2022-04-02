@@ -13,6 +13,8 @@ import {
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Tooltip } from "antd";
 import HeaderNavbar from "component/Common/navbar";
+import CardBody from "./CardBody";
+import Footer from "./Footer";
 
 const writtenNumber = require("written-number");
 
@@ -37,6 +39,7 @@ const NumberToWordComp = () => {
     currencySelect: "",
     isPrefix: "₹",
     amountNAN: false,
+    copiedEnglish: false,
     copied: false,
     isLocale: "en-IN",
     isCurrencyWord: "en-IN",
@@ -44,7 +47,6 @@ const NumberToWordComp = () => {
     convertedWordInternational: "",
     isTheme: false,
   });
-  const [darkMode] = useState(false);
 
   const [currencySelectWord, setCurrencySelectWord] =
     useState(initialCurrencyWord);
@@ -250,7 +252,10 @@ const NumberToWordComp = () => {
   };
   return (
     <>
-      <HeaderNavbar handleSwitch={handleSwitch} />
+      <HeaderNavbar
+        handleSwitch={handleSwitch}
+        colorKey={`${FormFields.isTheme ? "black" : "light"}`}
+      />
       <div className={`dark-mode ${FormFields.isTheme ? "black" : "light"}`}>
         <div className="layout">
           <div className="card-title">
@@ -348,17 +353,22 @@ const NumberToWordComp = () => {
                           onCopy={() =>
                             setFormFields({
                               ...FormFields,
-                              copied: true,
+                              copiedEnglish: true,
+                              copied: false,
                             })
                           }
                         >
                           <Tooltip
                             placement="left"
-                            title={"Copy To Clipboard"}
+                            title={`${
+                              FormFields.copiedEnglish
+                                ? "copied"
+                                : "Copy To Clipboard"
+                            }`}
                             color={"#102243"}
                           >
                             <span className="copy-clip">
-                              <ContentCopyIcon />{" "}
+                              <ContentCopyIcon />
                             </span>
                           </Tooltip>
                         </CopyToClipboard>
@@ -441,13 +451,16 @@ const NumberToWordComp = () => {
                           onCopy={() =>
                             setFormFields({
                               ...FormFields,
+                              copiedEnglish: false,
                               copied: true,
                             })
                           }
                         >
                           <Tooltip
                             placement="left"
-                            title={"Copy To Clipboard"}
+                            title={`${
+                              FormFields.copied ? "copied" : "Copy To Clipboard"
+                            }`}
                             color={"#102243"}
                           >
                             <span className="copy-clip">
@@ -521,9 +534,17 @@ const NumberToWordComp = () => {
                   </span>
                 </div>
               </div>
+              <p className="keyword">
+                <strong>Keyword :</strong> Number converter for words online,
+                automatic converter, generate numeric text. We set the indian
+                rupees by default, but if you want to convert to another
+                language, use the dropdown menu.
+              </p>
             </div>
           </div>
         </div>
+        <CardBody colorKey={`${FormFields.isTheme ? "black" : "light"}`} />
+        <Footer />
       </div>
     </>
   );

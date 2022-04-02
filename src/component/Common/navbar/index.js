@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav } from "reactstrap";
 import "./index.scss";
 import { styled } from "@mui/material/styles";
@@ -52,14 +52,34 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }));
-const HeaderNavbar = ({ handleSwitch = () => {} }) => {
+const HeaderNavbar = ({ handleSwitch = () => {}, colorKey }) => {
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    document.addEventListener("scroll", trackScroll);
+
+    return () => {
+      document.removeEventListener("scroll", trackScroll);
+    };
+  }, []);
+
+  const trackScroll = () => {
+    if (typeof window == "undefined") {
+      return;
+    } else {
+      setSticky(window.scrollY >= 5);
+    }
+  };
+
   return (
     <div>
-      <Navbar className="header-navbar bg-primary-color" expand="md">
+      <Navbar
+        expand="md"
+        className={`${
+          sticky && "sticky-bg"
+        } ${colorKey} header-navbar bg-primary-color`}
+      >
         <Nav className="header-navbar-title">
-          <h2 className="text-black mb-0 py-1 fw-400">
-            Numbers<strong>2</strong>Words
-          </h2>
+          <h2 className="text-black mb-0 py-1 fw-400">NumbersToWords</h2>
           <div className="switch">
             <FormGroup>
               <FormControlLabel
