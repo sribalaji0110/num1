@@ -238,9 +238,9 @@
           font-size: 13px;
         }
         span.copy-clip svg {
-          top: -7px;
-          height: 18px !important;
-          right: -8px;
+          top: -3px;
+          height: 22px !important;
+          right: -9px;
         }
         .card-details h6 {
           font-size: 12px;
@@ -369,4 +369,25 @@
     margin: 0;
     font-size: 12px;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #aeddffcc;
+  opacity: 0.8;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #365a83;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #365a83;
 }
