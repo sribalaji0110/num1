@@ -535,7 +535,7 @@ const NumberToWordComp = () => {
                 </div>
               </div>
               <p className="keyword">
-                <strong>Note :</strong> Number converter for words online,
+                <strong>Keyword :</strong> Number converter for words online,
                 automatic converter, generate numeric text. We set the indian
                 rupees by default, but if you want to convert to another
                 language, use the dropdown menu.
