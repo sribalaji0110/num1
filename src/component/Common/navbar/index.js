@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { useHistory } from "react-router-dom";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -52,7 +53,11 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     borderRadius: 20 / 2,
   },
 }));
-const HeaderNavbar = ({ handleSwitch = () => {}, colorKey }) => {
+const HeaderNavbar = ({
+  handleSwitch = () => {},
+  colorKey,
+  isNightMode = false,
+}) => {
   const [sticky, setSticky] = useState(false);
   useEffect(() => {
     document.addEventListener("scroll", trackScroll);
@@ -69,6 +74,7 @@ const HeaderNavbar = ({ handleSwitch = () => {}, colorKey }) => {
       setSticky(window.scrollY >= 5);
     }
   };
+  let history = useHistory();
 
   return (
     <div>
@@ -79,16 +85,27 @@ const HeaderNavbar = ({ handleSwitch = () => {}, colorKey }) => {
         } ${colorKey} header-navbar bg-primary-color`}
       >
         <Nav className="header-navbar-title">
-          <h2 className="text-black mb-0 py-1 fw-400">NumbersToWords</h2>
-          <div className="switch">
-            <FormGroup>
-              <FormControlLabel
-                control={<MaterialUISwitch sx={{ m: 1 }} />}
-                label=""
-                onChange={handleSwitch}
-              />
-            </FormGroup>
-          </div>
+          <h2
+            className="text-black mb-0 py-1 fw-400"
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            NumbersToWords
+          </h2>
+          {isNightMode ? (
+            ""
+          ) : (
+            <div className="switch">
+              <FormGroup>
+                <FormControlLabel
+                  control={<MaterialUISwitch sx={{ m: 1 }} />}
+                  label=""
+                  onChange={handleSwitch}
+                />
+              </FormGroup>
+            </div>
+          )}
         </Nav>
       </Navbar>
     </div>

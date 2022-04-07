@@ -363,11 +363,20 @@
   background: #191d20;
   padding: 15px 0px;
   text-align: center;
-  p {
+  p,
+  span {
     color: #fff;
     opacity: 0.6;
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
+  }
+  span {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  a span {
+    font-size: 17px;
+    padding: 0px 5px;
   }
 }
 
