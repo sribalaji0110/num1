@@ -7,6 +7,7 @@ import { store } from "./helpers";
 import "./assets/scss/index.scss";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.css";
+import { hydrate, render } from "react-dom";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,6 +15,13 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(<Routes />, rootElement);
+} else {
+  render(<Routes />, rootElement);
+}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
